@@ -27,12 +27,18 @@ pub fn login() -> Html {
     };
 
     html! {
-        <div class="bg-gray-800 flex w-screen">
-            <div class="container mx-auto flex flex-col justify-center items-center	">
-                <form class="m-4 flex">
-                    <input {oninput} class="rounded-l-lg p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white" placeholder="Username"/>
-                    <Link<Route> to={Route::Chat}> <button {onclick} disabled={username.len()<1} class="px-8 rounded-r-lg bg-violet-600	  text-white font-bold p-4 uppercase border-violet-600 border-t border-b border-r" >{"Go Chatting!"}</button></Link<Route>>
+        <div class="bg-gradient-to-r from-blue-500 to-purple-600 flex w-screen h-screen items-center justify-center">
+            <div class="flex flex-col bg-white shadow-lg p-10 rounded-lg">
+                <h2 class="text-2xl font-bold mb-6 text-gray-700">
+                    <span class="text-purple-600">{"Yew"}</span><span>{"Chat"}</span>
+                </h2>
+                <form class="flex">
+                    <input {oninput} class="flex-1 rounded-l-lg p-4 border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-200" placeholder="Username"/>
+                    <Link<Route> to={Route::Chat}>
+                        <button {onclick} disabled={username.len()<1} class="px-8 rounded-r-lg bg-purple-600 hover:bg-purple-700 text-white font-bold p-4 uppercase transition duration-200">{"Go Chatting!"}</button>
+                    </Link<Route>>
                 </form>
+                <p class="mt-4 text-gray-600 text-sm">{"Enter your username to start chatting."}</p>
             </div>
         </div>
     }
